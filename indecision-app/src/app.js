@@ -1,7 +1,7 @@
 console.log('app.js is running');
 
 // JSX template with title/subtite using JSON object
-let book = {
+const book = {
     title: 'Splat',
     subtitle: 'How High Altitude Fears Changed My Life',
     options: []
@@ -10,7 +10,7 @@ let book = {
 
 // subtitle only if exists
 // display options only if length > 0
-let template1 = (
+const template1 = (
     <div>
     <h1>{book.title}</h1>
     {book.subtitle && <p>{book.subtitle}</p>}
@@ -50,7 +50,7 @@ let getLocation = (location) => {
     }
 }
 
-let template2 = (
+const template2 = (
 <div>
   <h1>{user.name ?  user.name : 'Anonymous'}</h1>
   {user.age > 18 && <p>Age: {user.age}</p>}
@@ -59,4 +59,4 @@ let template2 = (
 );
 let appRoot = document.getElementById('app');
 
-ReactDOM.render(template1, appRoot);
+ReactDOM.render(template2, appRoot);
