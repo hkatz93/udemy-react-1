@@ -21,11 +21,17 @@ var userName =  'howard katz';
 var age = 45;
 var location2 = 'my house2'; // location causes redirect
 
+var user = {
+    name: 'Howard Katz',
+    age: 45,
+    location: 'venice'
+};
+
 var template2 = (
 <div>
-  <h1>{userName}</h1>
-  <p>Age: {age}</p>
-  <p>Location: {location2} </p>
+  <h1>{user.name}</h1>
+  <p>Age: {user.age}</p>
+  <p>Location: {user.location} </p>
 </div>
 );
 var appRoot = document.getElementById('app');
