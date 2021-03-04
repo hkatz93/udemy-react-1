@@ -3,13 +3,24 @@ console.log('app.js is running');
 // JSX template with title/subtite using JSON object
 var book = {
     title: 'Splat',
-    subtitle: 'How High Altitude Fears Changed My Life'
+    subtitle: 'How High Altitude Fears Changed My Life',
+    options: ['One', 'Two']
 }
 
+
+// subtitle only if exists
+// display options only if length > 0
 var template1 = (
     <div>
     <h1>{book.title}</h1>
-    <p>{book.subtitle}</p>
+    {book.subtitle && <p>{book.subtitle}</p>}
+    {book.options.length > 0 
+        && 
+        <ol>
+            <li>{book.options[0]}</li>
+            <li>{book.options[1]}</li>
+        </ol>
+    }
     </div>
 );
 //var template = /*#__PURE__*/React.createElement("p", null, "this is my template");
@@ -46,4 +57,4 @@ var template2 = (
 );
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template2, appRoot);
+ReactDOM.render(template1, appRoot);
