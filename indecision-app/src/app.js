@@ -33,13 +33,20 @@ function getLocation() {
     return 'this location';
 }
 
-var fLocation = () => 'fLocation';
+//var fLocation = () => 'fLocation';
+var fLocation = (location) => {
+    if (location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
 
 var template2 = (
 <div>
   <h1>{user.name}</h1>
   <p>Age: {user.age}</p>
-  <p>Location: {fLocation()}</p>
+  <p>Location: {fLocation('this location')}</p>
 </div>
 );
 var appRoot = document.getElementById('app');
