@@ -40,7 +40,7 @@ var getLocation = (location) => {
 var template2 = (
 <div>
   <h1>{user.name ?  user.name : 'Anonymous'}</h1>
-  <p>Age: {user.age}</p>
+  {user.age > 18 && <p>Age: {user.age}</p>}
   {getLocation(user.location)}
 </div>
 );
