@@ -40,3 +40,18 @@ const user2 = {
     }
 }
 user2.placesLived(); 
+
+const multiplier = {
+    // numbers array of numbers
+    // muliplier
+    numbers: [1, 2, 3, 4],
+    multiplier: 4,
+    multiply() {
+        let nums = this.numbers.map((number) => {
+            return number * this.multiplier;
+        })
+        return nums;
+    }
+};
+
+console.log("multiplier = "+multiplier.multiply());
