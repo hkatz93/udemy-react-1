@@ -1,13 +1,15 @@
 console.log('app.js is running');
 
-var template = (
+// JSX template with title/subtite using JSON object
+var book = {
+    title: 'Splat',
+    subtitle: 'How High Altitude Fears Changed My Life'
+}
+
+var template1 = (
     <div>
-    <h1>Howard's page</h1>
-    <p>This part of my JSX template!!!</p>
-    <ol>
-    <li>Item A</li>
-    <li>Item B</li>
-    </ol>
+    <h1>{book.title}</h1>
+    <p>{book.subtitle}</p>
     </div>
 );
 //var template = /*#__PURE__*/React.createElement("p", null, "this is my template");
@@ -27,11 +29,15 @@ var user = {
     location: 'venice'
 };
 
+function getLocation() {
+    return 'this location';
+}
+
 var template2 = (
 <div>
   <h1>{user.name}</h1>
   <p>Age: {user.age}</p>
-  <p>Location: {user.location} </p>
+  <p>Location: {getLocation()}</p>
 </div>
 );
 var appRoot = document.getElementById('app');
