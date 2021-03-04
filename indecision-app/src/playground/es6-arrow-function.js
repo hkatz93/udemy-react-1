@@ -8,7 +8,7 @@ const fullName = 'Howard2 Katz';
 //};
 
 // short syntax
-let firstName = (fullName) => fullName.split(' ')[0];
+const firstName = (fullName) => fullName.split(' ')[0];
 
 
 function getFirstName(fullName) {
