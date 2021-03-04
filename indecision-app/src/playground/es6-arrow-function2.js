@@ -30,13 +30,13 @@ user.printCities(); // works
 
 
 const user2 = {
-    name: 'Howard Katz',
+    name: 'Howard Katz3',
     age: 45,
     cities: ['venice2', 'sarasota2', 'port charlot2'],
     placesLived: function () {
-        let that = this;
-        this.cities.forEach(function(city) {
-            console.log(that.name + ' has lived in ' + city);
+        //let that = this;
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city);
         });
     }
 }
