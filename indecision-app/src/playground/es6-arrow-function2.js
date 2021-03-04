@@ -34,8 +34,8 @@ const user2 = {
     age: 45,
     cities: ['venice2', 'sarasota2', 'port charlot2'],
     placesLived() {
-        this.cities.forEach((city) => {
-            console.log(this.name + ' has lived in ' + city);
+        this.cities.map((value, index) => {
+            console.log(this.name + ' has lived in ' + value);
         });
     }
 }
