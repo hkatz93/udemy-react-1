@@ -26,27 +26,22 @@ var location2 = 'my house2'; // location causes redirect
 var user = {
     name: 'Howard Katz',
     age: 45,
-    location: 'venice'
+    location: 'venice2'
 };
 
-function getLocation() {
-    return 'this location';
-}
 
 //var fLocation = () => 'fLocation';
-var fLocation = (location) => {
+var getLocation = (location) => {
     if (location) {
-        return location;
-    } else {
-        return 'Unknown';
+        return <p>{location}</p>;
     }
 }
 
 var template2 = (
 <div>
-  <h1>{user.name}</h1>
+  <h1>{user.name ?  user.name : 'Anonymous'}</h1>
   <p>Age: {user.age}</p>
-  <p>Location: {fLocation('this location')}</p>
+  {getLocation(user.location)}
 </div>
 );
 var appRoot = document.getElementById('app');
