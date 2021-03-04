@@ -17,8 +17,10 @@ var template1 = (
     {book.options.length > 0 
         && 
         <ol>
-            <li>{book.options[0]}</li>
-            <li>{book.options[1]}</li>
+            {book.options.map((value, index) => {
+                return <li key={index}>{value}</li>
+
+            })}
         </ol>
     }
     </div>
