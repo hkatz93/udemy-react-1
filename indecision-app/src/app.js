@@ -68,7 +68,7 @@ const RenderPage = () => {
         </form>
         </div>
     );
-    ReactDOM.render(template1, appRoot);
+    ReactDOM.render(template2, appRoot);
 }
 RenderPage();
 
