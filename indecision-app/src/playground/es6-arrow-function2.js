@@ -47,10 +47,7 @@ const multiplier = {
     numbers: [1, 2, 3, 4],
     multiplier: 4,
     multiply() {
-        let nums = this.numbers.map((number) => {
-            return number * this.multiplier;
-        })
-        return nums;
+       return this.numbers.map((number) => number * this.multiplier);
     }
 };
 
