@@ -52,7 +52,7 @@ const RenderPage = () => {
         {app.subtitle && <p>{app.subtitle}</p>}
         <p>Number of options = {app.options.length}</p>
         <p><button onClick={resetAllOptions}>Remove All Options</button></p>
-        <p><button onClick={onMakeDecision}>What should I do?</button></p>
+        <p><button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button></p>
         {app.options.length > 0 
             ? 
             <ol>
@@ -67,7 +67,7 @@ const RenderPage = () => {
             <button>Add Option</button>
             
         </form>
-        {app.suggestedOption && <p>{app.suggestedOption}</p>}
+        {app.suggestedOption && <p>Suggested option: {app.suggestedOption}</p>}
         </div>
     );
     ReactDOM.render(template2, appRoot);
