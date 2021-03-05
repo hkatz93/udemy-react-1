@@ -25,36 +25,25 @@ const template1 = (
     }
     </div>
 );
-//var template = /*#__PURE__*/React.createElement("p", null, "this is my template");
-
-// JSX template with variables
-// h1 -> name
-// p -> age
-// p -> location
-
-const userName =  'howard katz';
-const age = 45;
-const location2 = 'my house2'; // location causes redirect
-
-const user = {
-    name: 'Howard Katz',
-    age: 45,
-    location: 'venice2'
-};
-
-
-//var fLocation = () => 'fLocation';
-let getLocation = (location) => {
-    if (location) {
-        return <p>{location}</p>;
-    }
+let count = 1;
+const addOne = function() {
+    count = count + 1;
+    console.log('addOne');
 }
 
+const subtractOne = function() {
+    count = count - 1;
+    console.log('subtractOne');
+}
+
+const resetButton = function() {
+    console.log('resetButton');
+}
 const template2 = (
 <div>
-  <h1>{user.name ?  user.name : 'Anonymous'}</h1>
-  {user.age > 18 && <p>Age: {user.age}</p>}
-  {getLocation(user.location)}
+  <h1>Count = {count}</h1>
+  <p><button id='my-id' className='button' onClick={addOne}>+1</button></p>
+  <p><button id='my-id2' className='button' onClick={subtractOne}>-1</button></p>  
 </div>
 );
 let appRoot = document.getElementById('app');
