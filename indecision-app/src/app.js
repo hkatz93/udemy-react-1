@@ -1,63 +1,76 @@
 console.log('app.js is running');
 
 // JSX template with title/subtite using JSON object
-const book = {
+const app = {
     title: 'Splat',
     subtitle: 'How High Altitude Fears Changed My Life',
-    options: []
+    options: ['op1a','op2','op3']
 }
 
+//const onFormSubmit = function (e) {
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('onFormSubmit');
+
+    const option = e.target.elements.option.value;
+    if (option) {
+        app.options.push(option); // working
+        
+        e.target.elements.option.value = '';
+    }
+    console.log('options = '+ app.options);
+    RenderPage();
+    
+}
 
 // subtitle only if exists
 // display options only if length > 0
 const template1 = (
     <div>
-    <h1>{book.title}</h1>
-    {book.subtitle && <p>{book.subtitle}</p>}
-    {book.options.length > 0 
+    <h1>{app.title}</h1>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    <p>Number of options = {app.options.length}</p>
+    {app.options.length > 0 
         ? 
         <ol>
-            {book.options.map((value, index) => {
+            {app.options.map((value, index) => {
                 return <li key={index}>{value}</li>
             })}
         </ol>
         : "No options"
     }
+    <form onSubmit={onFormSubmit}>
+        <input type='text' name='option'></input>
+        <button>Add Option</button>
+    </form>
     </div>
 );
-let count = 1;
-const addOne = () => {
-    count = count + 1;
-    console.log('addOne');
-    renderCounterApp();
-}
-
-const subtractOne = () => {
-    count = count - 1;
-    console.log('subtractOne');
-    renderCounterApp();
-}
-
-const resetButton = () => {
-    count = 0;
-    console.log('resetButton');
-    renderCounterApp();
-}
-
 
 let appRoot = document.getElementById('app');
-
-//ReactDOM.render(template2, appRoot);
-
-const renderCounterApp = () => {
+const RenderPage = () => {
     const template2 = (
         <div>
-          <h1>Count = {count}</h1>
-          <p><button id='my-id' className='button' onClick={addOne}>+1</button></p>
-          <p><button id='my-id2' className='button' onClick={subtractOne}>-1</button></p>
-          <p><button id='my-id2' className='button' onClick={resetButton}>Reset</button></p>  
+        <h1>{app.title}</h1>
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>Number of options = {app.options.length}</p>
+        {app.options.length > 0 
+            ? 
+            <ol>
+                {app.options.map((value, index) => {
+                    return <li key={index}>{value}</li>
+                })}
+            </ol>
+            : "No options"
+        }
+        <form onSubmit={onFormSubmit}>
+            <input type='text' name='option'></input>
+            <button>Add Option</button>
+        </form>
         </div>
-        );
-    ReactDOM.render(template2, appRoot);
+    );
+    ReactDOM.render(template1, appRoot);
 }
-renderCounterApp();
+RenderPage();
+
+//let appRoot = document.getElementById('app');
+//ReactDOM.render(template1, appRoot);
