@@ -23,6 +23,13 @@ const onFormSubmit = (e) => {
     
 }
 
+const resetAllOptions = (e) => {
+    e.preventDefault();
+    console.log('resetAllOptions');
+    app.options = [];
+    RenderPage();
+}
+
 // subtitle only if exists
 // display options only if length > 0
 const template1 = (
@@ -65,6 +72,7 @@ const RenderPage = () => {
         <form onSubmit={onFormSubmit}>
             <input type='text' name='option'></input>
             <button>Add Option</button>
+            <p><button onClick={resetAllOptions}>Remove All Options</button></p>
         </form>
         </div>
     );
