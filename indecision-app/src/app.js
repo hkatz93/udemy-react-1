@@ -4,8 +4,11 @@ console.log('app.js is running');
 const app = {
     title: 'Splat',
     subtitle: 'How High Altitude Fears Changed My Life',
-    options: ['op1a','op2','op3']
+    options: ['op1a','op2','op3'],
+    suggestedOption: ''
 }
+
+
 
 //const onFormSubmit = function (e) {
 const onFormSubmit = (e) => {
@@ -23,43 +26,33 @@ const onFormSubmit = (e) => {
     
 }
 
-const resetAllOptions = (e) => {
-    e.preventDefault();
+const resetAllOptions = () => {
     console.log('resetAllOptions');
     app.options = [];
+    app.suggestedOption = '';
     RenderPage();
 }
 
-// subtitle only if exists
-// display options only if length > 0
-const template1 = (
-    <div>
-    <h1>{app.title}</h1>
-    {app.subtitle && <p>{app.subtitle}</p>}
-    <p>Number of options = {app.options.length}</p>
-    {app.options.length > 0 
-        ? 
-        <ol>
-            {app.options.map((value, index) => {
-                return <li key={index}>{value}</li>
-            })}
-        </ol>
-        : "No options"
-    }
-    <form onSubmit={onFormSubmit}>
-        <input type='text' name='option'></input>
-        <button>Add Option</button>
-    </form>
-    </div>
-);
+const onMakeDecision = () => {
+    const randNum = Math.floor((Math.random() * app.options.length));
+    console.log('randNum = '+randNum);
+    // select a random option
+    const randOption = app.options[randNum];
+    console.log('randOption='+randOption);
+    app.suggestedOption = randOption;
+    RenderPage();
+}
 
-let appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
+ 
 const RenderPage = () => {
     const template2 = (
         <div>
         <h1>{app.title}</h1>
         {app.subtitle && <p>{app.subtitle}</p>}
         <p>Number of options = {app.options.length}</p>
+        <p><button onClick={resetAllOptions}>Remove All Options</button></p>
+        <p><button onClick={onMakeDecision}>What should I do?</button></p>
         {app.options.length > 0 
             ? 
             <ol>
@@ -72,8 +65,9 @@ const RenderPage = () => {
         <form onSubmit={onFormSubmit}>
             <input type='text' name='option'></input>
             <button>Add Option</button>
-            <p><button onClick={resetAllOptions}>Remove All Options</button></p>
+            
         </form>
+        {app.suggestedOption && <p>{app.suggestedOption}</p>}
         </div>
     );
     ReactDOM.render(template2, appRoot);
