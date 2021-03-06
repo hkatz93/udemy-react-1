@@ -4,14 +4,35 @@
         this.name = name;
         this.age = age;
     }
+
+    getGreeting() {
+        return `Hi. My name is ${this.name}`;
+    }
+
     getDescription() {
         return `${this.name} is ${this.age} year(s) old.`
     }
  }
 
- const person1 = new Person('Guy Fawls', 45);
- const person2 = new Person('Sally Runion', 50);
+ class Traveler extends Person {
+    constructor(name, age, homelocation = '') {
+        super(name, age);
+        this.homelocation = homelocation;
+    }
+    
+    getGreeting() {
+        let greeting = super.getGreeting();
+        greeting += !!this.homelocation ? ` I am visiting from ${this.homelocation}.` : '';
+        return greeting;
+    }
+}
 
- console.log(person1.getDescription());
- console.log(person2.getDescription());
+ 
+const person0 = new Person();
+const person1 = new Traveler('Guy Fawls', 45, 'Moscow');
+const person2 = new Traveler();
+
+console.log(person0.getGreeting());
+console.log(person1.getGreeting());
+console.log(person2.getGreeting());
 
