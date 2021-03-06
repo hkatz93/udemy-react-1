@@ -1,10 +1,14 @@
 class IndecisionApp extends React.Component {
     render() {
+        const title = 'Indecision Picker';
+        const subtitle = 'Put your life into the hands of a computer';
+        const options = ['Act 1', 'Act 2', 'Act 3'];
+
         return (
         <div>
-        <Header title='Indecision Picker' subtitle='Put your life into the hands of a computer' />
+        <Header title={title} subtitle={subtitle} />
         <Action />
-        <Options />
+        <Options options={options} />
         <AddOption />
         </div>
         );
@@ -36,7 +40,17 @@ class Options extends React.Component {
     render() {
         return (
             <div>
-            <Option />
+            <p>{this.props.options.length}</p>
+            {this.props.options.length > 0 
+                ? 
+                <ol>
+                    {this.props.options.map((value, index) => {
+                        return <Option key={index} value={value} />
+                    })}
+                </ol>
+                : "No options"
+            }
+            <Option/>
             </div>
         );
     }
@@ -45,12 +59,7 @@ class Options extends React.Component {
 class Option extends React.Component {
     render() {
         return (
-            <div>
-            <ol>
-                <li>1111</li>
-                <li>2222</li>
-            </ol>
-            </div>
+        <li>{this.props.value}</li>      
         );
     }
 }
