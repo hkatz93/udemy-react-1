@@ -38,6 +38,7 @@ class Action extends React.Component {
 
 class Options extends React.Component {
     render() {
+        console.log(this.props);
         return (
             <div>
             <p>{this.props.options.length}</p>
@@ -50,7 +51,6 @@ class Options extends React.Component {
                 </ol>
                 : "No options"
             }
-            <Option/>
             </div>
         );
     }
@@ -58,6 +58,7 @@ class Options extends React.Component {
 
 class Option extends React.Component {
     render() {
+        //console.log(this.props);
         return (
         <li>{this.props.value}</li>      
         );
