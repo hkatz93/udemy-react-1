@@ -1,14 +1,21 @@
+// refactor with state
+
 class IndecisionApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            options:  ['Act 1', 'Act 2', 'Act 3']
+        }
+    }
     render() {
         const title = 'Indecision Picker';
         const subtitle = 'Put your life into the hands of a computer';
-        const options = ['Act 1', 'Act 2', 'Act 3'];
-
+        
         return (
         <div>
         <Header title={title} subtitle={subtitle} />
-        <Action />
-        <Options options={options} />
+        <Action hasOption={this.state.options.length > 0}/>
+        <Options options={this.state.options} />
         <AddOption />
         </div>
         );
@@ -27,13 +34,23 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-    handleWhatShouldIDo() {
-        alert('handleWhatShouldIDo');
+    
+    // const randNum = Math.floor((Math.random() * app.options.length));
+    //     console.log('randNum = '+randNum);
+    //     // select a random option
+    //     const randOption = app.options[randNum];
+    //     console.log('randOption='+randOption);
+    //     app.suggestedOption = randOption;
+    handleWhatShouldIDo(prevState) {
+        //const randNum = Math.floor((Math.random() * prevState.options.length));
+        //const randOption = prevState.options[randNum]; 
+        
+        alert('handleWhatShouldIDo'); // = '+randOption);
     }
     render() {
         return (
         <div>
-            <button onClick={this.handleWhatShouldIDo}>What should I do?</button>  
+            <button disabled={!this.props.hasOption} onClick={this.handleWhatShouldIDo}>What should I do?</button>  
         </div>
         );
     }
