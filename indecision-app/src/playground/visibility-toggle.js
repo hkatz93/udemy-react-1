@@ -6,8 +6,8 @@ class MessageToggle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            'message': (props.message) ? props.message : 'This is my message',
-            'visibility': false
+            message: (props.message) ? props.message : 'This is my message',
+            visibility: false
         };
         this.toggleVisibility = this.toggleVisibility.bind(this);
 
