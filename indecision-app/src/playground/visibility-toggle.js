@@ -6,10 +6,11 @@ class MessageToggle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            'message': 'This is my message',
+            'message': (props.message) ? props.message : 'This is my message',
             'visibility': false
         };
         this.toggleVisibility = this.toggleVisibility.bind(this);
+
     }
     toggleVisibility() {
         this.setState((prevState) => {
@@ -30,7 +31,7 @@ class MessageToggle extends React.Component {
     }
 }
 
-ReactDOM.render(<MessageToggle />, document.getElementById('app'));
+ReactDOM.render(<MessageToggle message='hello there' />, document.getElementById('app'));
 
 // const app = {
 //     title: 'Visibility Toggle',
