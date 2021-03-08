@@ -8,6 +8,7 @@ class IndecisionApp extends React.Component {
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         //this.handleAddOption = this.handleAddOption.bind(this);
+        this.handleWhatShouldIDo = this.handleWhatShouldIDo.bind(this);
     }
     handleDeleteOptions() {
         this.setState(() => {
@@ -15,6 +16,12 @@ class IndecisionApp extends React.Component {
                 options: []
             };
         });
+    }
+    handleWhatShouldIDo() {
+        const randNum = Math.floor((Math.random() * this.state.options.length));
+        const randOption = this.state.options[randNum]; 
+        
+        alert('handleWhatShouldIDo = '+randOption);
     }
     // handleAddOption(e) {
     //     e.preventDefault();
@@ -32,7 +39,10 @@ class IndecisionApp extends React.Component {
         return (
         <div>
         <Header title={title} subtitle={subtitle} />
-        <Action hasOption={this.state.options.length > 0}/>
+        <Action 
+            hasOption={this.state.options.length > 0}
+            handleWhatShouldIDo={this.handleWhatShouldIDo}
+        />
         <Options 
             options={this.state.options}
             handleDeleteOptions={this.handleDeleteOptions}
@@ -62,17 +72,17 @@ class Action extends React.Component {
     //     const randOption = app.options[randNum];
     //     console.log('randOption='+randOption);
     //     app.suggestedOption = randOption;
-    handleWhatShouldIDo(prevState) {
-        //const randNum = Math.floor((Math.random() * prevState.options.length));
-        //const randOption = prevState.options[randNum]; 
+    // handleWhatShouldIDo(prevState) {
+    //     //const randNum = Math.floor((Math.random() * prevState.options.length));
+    //     //const randOption = prevState.options[randNum]; 
         
-        alert('handleWhatShouldIDo'); // = '+randOption);
-    }
+    //     alert('handleWhatShouldIDo'); // = '+randOption);
+    // }
     render() {
         return (
         <div>
             <button 
-                onClick={this.handleWhatShouldIDo}
+                onClick={this.props.handleWhatShouldIDo}
                 disabled={!this.props.hasOption}
             >
                 What should I do?
