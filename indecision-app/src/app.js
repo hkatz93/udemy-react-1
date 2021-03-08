@@ -7,6 +7,7 @@ class IndecisionApp extends React.Component {
             options:  ['Act 1', 'Act 2', 'Act 3']
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+        //this.handleAddOption = this.handleAddOption.bind(this);
     }
     handleDeleteOptions() {
         this.setState(() => {
@@ -15,13 +16,15 @@ class IndecisionApp extends React.Component {
             };
         });
     }
-      handleDeleteOptions() {
-    this.setState(() => {
-      return {
-        options: []
-      };
-    });
-  }
+    // handleAddOption(e) {
+    //     e.preventDefault();
+    //     const option = e.target.elements.option.value.trim();
+    //     if (option) {
+    //         alert('handleAddOption: value = '+option);
+    //     }
+        
+    // }
+  
     render() {
         const title = 'Indecision Picker';
         const subtitle = 'Put your life into the hands of a computer';
@@ -34,7 +37,7 @@ class IndecisionApp extends React.Component {
             options={this.state.options}
             handleDeleteOptions={this.handleDeleteOptions}
         />
-        <AddOption />
+        <AddOption handleAddOption={this.handleAddOption} />
         </div>
         );
     }
@@ -85,7 +88,7 @@ class Options extends React.Component {
         return (
             <div>
             <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-            <p>{this.props.options.length}</p>
+            <p>item count = {this.props.options.length}</p>
             {this.props.options.length > 0 
                 ? 
                 <ol>
@@ -112,7 +115,6 @@ class Option extends React.Component {
 class AddOption extends React.Component {
     handleAddOption(e) {
         e.preventDefault();
-        
         const option = e.target.elements.option.value.trim();
         if (option) {
             alert('handleAddOption: value = '+option);
