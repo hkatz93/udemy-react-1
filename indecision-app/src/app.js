@@ -6,7 +6,22 @@ class IndecisionApp extends React.Component {
         this.state = {
             options:  ['Act 1', 'Act 2', 'Act 3']
         }
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     }
+    handleDeleteOptions() {
+        this.setState(() => {
+            return {
+                options: []
+            };
+        });
+    }
+      handleDeleteOptions() {
+    this.setState(() => {
+      return {
+        options: []
+      };
+    });
+  }
     render() {
         const title = 'Indecision Picker';
         const subtitle = 'Put your life into the hands of a computer';
@@ -15,7 +30,10 @@ class IndecisionApp extends React.Component {
         <div>
         <Header title={title} subtitle={subtitle} />
         <Action hasOption={this.state.options.length > 0}/>
-        <Options options={this.state.options} />
+        <Options 
+            options={this.state.options}
+            handleDeleteOptions={this.handleDeleteOptions}
+        />
         <AddOption />
         </div>
         );
@@ -50,26 +68,23 @@ class Action extends React.Component {
     render() {
         return (
         <div>
-            <button disabled={!this.props.hasOption} onClick={this.handleWhatShouldIDo}>What should I do?</button>  
+            <button 
+                onClick={this.handleWhatShouldIDo}
+                disabled={!this.props.hasOption}
+            >
+                What should I do?
+            </button>  
         </div>
         );
     }
 }
 
 class Options extends React.Component {
-    constructor(props){
-        super(props);
-        this.handleRemoveAll = this.handleRemoveAll.bind(this);
-    }
-    handleRemoveAll() {
-        alert('removeAll');
-        //this.props.options = [];
-    }
-    render() {
+    render(props) {
         //console.log(this.props);
         return (
             <div>
-            <button onClick={this.handleRemoveAll}>Remove All</button>
+            <button onClick={this.props.handleDeleteOptions}>Remove All</button>
             <p>{this.props.options.length}</p>
             {this.props.options.length > 0 
                 ? 
