@@ -24,18 +24,26 @@ class IndecisionApp extends React.Component {
         alert('handleWhatShouldIDo = '+randOption);
     }
     handleAddOption(option) {
-        
         if (option) {
             alert('app handleAddOption: value = '+option);
         }
+        // check for duplicates
+        
+        const duplicate = this.state.options.find(element => element === option);
+        if (duplicate) {
+            console.log('duplicate found for option = '+option);
+        }
+
         // not working: const options = this.prevState.options.concat([option]);
         //console.log(this.state.options);
         // this.setState
-        this.setState((prevState) => {
-            return {
-                options: prevState.options.concat([option])
-            };
-        });
+        if (!duplicate) {
+            this.setState((prevState) => {
+                return {
+                    options: prevState.options.concat([option])
+                };
+            });
+        }
         console.log(option);
     }
     // handleAddOption(e) {
