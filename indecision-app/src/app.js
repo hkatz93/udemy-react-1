@@ -4,18 +4,14 @@ class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            options:  ['Act 1', 'Act 2', 'Act 3']
+            options:  props.options
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.handleWhatShouldIDo = this.handleWhatShouldIDo.bind(this);
     }
     handleDeleteOptions() {
-        this.setState(() => {
-            return {
-                options: []
-            };
-        });
+        this.setState(() => ({ options: [] }));
     }
     handleWhatShouldIDo() {
         const randNum = Math.floor((Math.random() * this.state.options.length));
@@ -34,26 +30,10 @@ class IndecisionApp extends React.Component {
             return 'duplicates not allowed: ' + value;
         }
 
-        // not working: const options = this.prevState.options.concat([option]);
-        //console.log(this.state.options);
-        // this.setState
-        this.setState((prevState) => {
-            return {
-                options: prevState.options.concat([value])
-            };
-        });
-        
+        this.setState((prevState) => ({ options: prevState.options.concat([value]) }));
         console.log(value);
     }
-    // handleAddOption(e) {
-    //     e.preventDefault();
-    //     const option = e.target.elements.option.value.trim();
-    //     if (option) {
-    //         alert('handleAddOption: value = '+option);
-    //     }
-        
-    // }
-  
+   
     render() {
         const title = 'Indecision Picker';
         const subtitle = 'Put your life into the hands of a computer';
@@ -75,6 +55,9 @@ class IndecisionApp extends React.Component {
     }
 }
 
+IndecisionApp.defaultProps = {
+    options: ['op1', 'op2', 'op3']
+}
 
 const Header = (props) => {
     return (
@@ -83,6 +66,11 @@ const Header = (props) => {
         <h2>{props.subtitle}</h2>
         </div>
     );
+}
+
+Header.defaultProps = {
+    title: 'Indecision Piks',
+    subtitle: 'putting your life to a computer'
 }
 
 const Action = (props) => {
@@ -134,17 +122,8 @@ class AddOption extends React.Component {
         e.preventDefault();
         const option = e.target.elements.option.value;
         const error =  this.props.handleAddOption(option);
-        // if (option) {
-        //     // console.log(option);
-        //     // alert('handleAddOption: value == ');
-        //     this.props.handleAddOption(option);
-        // }
-        //console.log(error);
-        this.setState((prevState) => {
-            return {
-                error: error    
-            }
-        });
+        this.setState((prevState) => ({error: error}));
+        
         if (!error) {
             e.target.elements.option.value = '';
         }
