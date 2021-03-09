@@ -7,7 +7,7 @@ class IndecisionApp extends React.Component {
             options:  ['Act 1', 'Act 2', 'Act 3']
         }
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-        //this.handleAddOption = this.handleAddOption.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
         this.handleWhatShouldIDo = this.handleWhatShouldIDo.bind(this);
     }
     handleDeleteOptions() {
@@ -22,6 +22,21 @@ class IndecisionApp extends React.Component {
         const randOption = this.state.options[randNum]; 
         
         alert('handleWhatShouldIDo = '+randOption);
+    }
+    handleAddOption(option) {
+        
+        if (option) {
+            alert('app handleAddOption: value = '+option);
+        }
+        // not working: const options = this.prevState.options.concat([option]);
+        //console.log(this.state.options);
+        // this.setState
+        this.setState((prevState) => {
+            return {
+                options: prevState.options.concat([option])
+            };
+        });
+        console.log(option);
     }
     // handleAddOption(e) {
     //     e.preventDefault();
@@ -123,13 +138,18 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+    }
     handleAddOption(e) {
         e.preventDefault();
         const option = e.target.elements.option.value.trim();
         if (option) {
-            alert('handleAddOption: value = '+option);
+            // console.log(option);
+            // alert('handleAddOption: value == ');
+            this.props.handleAddOption(option);
         }
-        
     }
     render() {
         return (
