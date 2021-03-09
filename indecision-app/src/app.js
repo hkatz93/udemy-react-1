@@ -24,27 +24,26 @@ class IndecisionApp extends React.Component {
         alert('handleWhatShouldIDo = '+randOption);
     }
     handleAddOption(option) {
-        if (option) {
-            alert('app handleAddOption: value = '+option);
+        const value = option.trim();
+        if (!value) {
+            return 'option must not be blank';
         }
-        // check for duplicates
         
-        const duplicate = this.state.options.find(element => element === option);
-        if (duplicate) {
-            console.log('duplicate found for option = '+option);
+        if (this.state.options.indexOf(value) > -1) {
+            // console.log('duplicate found for option = '+option);
+            return 'duplicates not allowed: ' + value;
         }
 
         // not working: const options = this.prevState.options.concat([option]);
         //console.log(this.state.options);
         // this.setState
-        if (!duplicate) {
-            this.setState((prevState) => {
-                return {
-                    options: prevState.options.concat([option])
-                };
-            });
-        }
-        console.log(option);
+        this.setState((prevState) => {
+            return {
+                options: prevState.options.concat([value])
+            };
+        });
+        
+        console.log(value);
     }
     // handleAddOption(e) {
     //     e.preventDefault();
@@ -149,19 +148,30 @@ class AddOption extends React.Component {
     constructor(props) {
         super(props);
         this.handleAddOption = this.handleAddOption.bind(this);
+        this.state = {
+            error: ''
+        }
     }
     handleAddOption(e) {
         e.preventDefault();
-        const option = e.target.elements.option.value.trim();
-        if (option) {
-            // console.log(option);
-            // alert('handleAddOption: value == ');
-            this.props.handleAddOption(option);
-        }
+        const option = e.target.elements.option.value;
+        const error =  this.props.handleAddOption(option);
+        // if (option) {
+        //     // console.log(option);
+        //     // alert('handleAddOption: value == ');
+        //     this.props.handleAddOption(option);
+        // }
+        //console.log(error);
+        this.setState((prevState) => {
+            return {
+                error: error    
+            }
+        });
     }
     render() {
         return (
         <div>
+        {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.handleAddOption}>
         <input type='text' name='option' /><button>Add Option</button>
         </form>
