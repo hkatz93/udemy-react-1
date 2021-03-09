@@ -75,73 +75,51 @@ class IndecisionApp extends React.Component {
     }
 }
 
-class Header extends React.Component {
-    render() {
-        return (
-            <div>
-            <h1>{this.props.title}</h1>
-            <h2>{this.props.subtitle}</h2>
-            </div>
-        );
-    }
-}
 
-class Action extends React.Component {
-    
-    // const randNum = Math.floor((Math.random() * app.options.length));
-    //     console.log('randNum = '+randNum);
-    //     // select a random option
-    //     const randOption = app.options[randNum];
-    //     console.log('randOption='+randOption);
-    //     app.suggestedOption = randOption;
-    // handleWhatShouldIDo(prevState) {
-    //     //const randNum = Math.floor((Math.random() * prevState.options.length));
-    //     //const randOption = prevState.options[randNum]; 
-        
-    //     alert('handleWhatShouldIDo'); // = '+randOption);
-    // }
-    render() {
-        return (
+const Header = (props) => {
+    return (
         <div>
-            <button 
-                onClick={this.props.handleWhatShouldIDo}
-                disabled={!this.props.hasOption}
-            >
-                What should I do?
-            </button>  
+        <h1>{props.title}</h1>
+        <h2>{props.subtitle}</h2>
         </div>
-        );
-    }
+    );
 }
 
-class Options extends React.Component {
-    render(props) {
-        //console.log(this.props);
-        return (
-            <div>
-            <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-            <p>item count = {this.props.options.length}</p>
-            {this.props.options.length > 0 
-                ? 
-                <ol>
-                    {this.props.options.map((value, index) => {
-                        return <Option key={index} value={value} />
-                    })}
-                </ol>
-                : "No options"
-            }
-            </div>
-        );
-    }
+const Action = (props) => {
+    return (
+        <div>
+        <button 
+            onClick={props.handleWhatShouldIDo}
+            disabled={!props.hasOption}
+        >
+            What should I do?
+        </button>  
+        </div>
+    );
 }
 
-class Option extends React.Component {
-    render() {
-        //console.log(this.props);
-        return (
-        <li>{this.props.value}</li>      
-        );
-    }
+const Options = (props) => {
+    return (
+        <div>
+        <button onClick={props.handleDeleteOptions}>Remove All</button>
+        <p>item count = {props.options.length}</p>
+        {props.options.length > 0 
+            ? 
+            <ol>
+                {props.options.map((value, index) => {
+                    return <Option key={index} value={value} />
+                })}
+            </ol>
+            : "No options"
+        }
+        </div>
+    );
+}
+
+const Option = (props) => {
+    return (
+        <li>{props.value}</li>
+    );
 }
 
 class AddOption extends React.Component {
@@ -167,6 +145,9 @@ class AddOption extends React.Component {
                 error: error    
             }
         });
+        if (!error) {
+            e.target.elements.option.value = '';
+        }
     }
     render() {
         return (
