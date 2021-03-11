@@ -5,16 +5,15 @@
   "main": "index.js",
   "author": "Howard Katz",
   "license": "MIT",
-  "dependencies": {
-    "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1"
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
-  "devDependencies": {
-    "eslint": "^7.21.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+  "dependencies": {
+    "babel-cli": "6.24.1",
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1",
+    "live-server": "^1.2.1",
+    "webpack": "3.1.0"
   }
 }
