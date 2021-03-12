@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default (props) => {
+const Option = (props) => {
     return (
     <li>{props.value}</li>      
     );
 }
+export default Option;
