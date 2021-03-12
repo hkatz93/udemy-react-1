@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Option from './components/Option';
 
 class IndecisionApp extends React.Component {
     constructor(props) {
@@ -137,14 +138,14 @@ class Options extends React.Component {
     }
 }
 
-class Option extends React.Component {
-    render() {
-        //console.log(this.props);
-        return (
-        <li>{this.props.value}</li>      
-        );
-    }
-}
+// class Option extends React.Component {
+//     render() {
+//         //console.log(this.props);
+//         return (
+//         <li>{this.props.value}</li>      
+//         );
+//     }
+// }
 
 class AddOption extends React.Component {
     constructor(props) {
