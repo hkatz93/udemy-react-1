@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Option from './components/Option';
+import Options from './components/Options';
+import AddOption from './components/AddOption';
 
 class IndecisionApp extends React.Component {
     constructor(props) {
@@ -117,26 +119,26 @@ class Action extends React.Component {
     }
 }
 
-class Options extends React.Component {
-    render(props) {
-        //console.log(this.props);
-        return (
-            <div>
-            <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-            <p>item count = {this.props.options.length}</p>
-            {this.props.options.length > 0 
-                ? 
-                <ol>
-                    {this.props.options.map((value, index) => {
-                        return <Option key={index} value={value} />
-                    })}
-                </ol>
-                : "No options"
-            }
-            </div>
-        );
-    }
-}
+// class Options extends React.Component {
+//     render(props) {
+//         //console.log(this.props);
+//         return (
+//             <div>
+//             <button onClick={this.props.handleDeleteOptions}>Remove All</button>
+//             <p>item count = {this.props.options.length}</p>
+//             {this.props.options.length > 0 
+//                 ? 
+//                 <ol>
+//                     {this.props.options.map((value, index) => {
+//                         return <Option key={index} value={value} />
+//                     })}
+//                 </ol>
+//                 : "No options"
+//             }
+//             </div>
+//         );
+//     }
+// }
 
 // class Option extends React.Component {
 //     render() {
@@ -147,29 +149,29 @@ class Options extends React.Component {
 //     }
 // }
 
-class AddOption extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleAddOption = this.handleAddOption.bind(this);
-    }
-    handleAddOption(e) {
-        e.preventDefault();
-        const option = e.target.elements.option.value.trim();
-        if (option) {
-            // console.log(option);
-            // alert('handleAddOption: value == ');
-            this.props.handleAddOption(option);
-        }
-    }
-    render() {
-        return (
-        <div>
-        <form onSubmit={this.handleAddOption}>
-        <input type='text' name='option' /><button>Add Option</button>
-        </form>
-        </div>
-        );
-    }
-}
+// class AddOption extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.handleAddOption = this.handleAddOption.bind(this);
+//     }
+//     handleAddOption(e) {
+//         e.preventDefault();
+//         const option = e.target.elements.option.value.trim();
+//         if (option) {
+//             // console.log(option);
+//             // alert('handleAddOption: value == ');
+//             this.props.handleAddOption(option);
+//         }
+//     }
+//     render() {
+//         return (
+//         <div>
+//         <form onSubmit={this.handleAddOption}>
+//         <input type='text' name='option' /><button>Add Option</button>
+//         </form>
+//         </div>
+//         );
+//     }
+// }
 
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
