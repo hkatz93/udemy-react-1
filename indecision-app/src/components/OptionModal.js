@@ -8,6 +8,7 @@ const OptionModal = (props) => (
   >
   <h1>Selected Option</h1>
   <p>{props.selectedOption && props.selectedOption}</p>
+  <button onClick={props.handleDeleteOption}>Okay</button>
   </Modal>
 );
 
