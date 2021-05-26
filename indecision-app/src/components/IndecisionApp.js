@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Action from './Action';
-import Options from './Options';
+import Options from './Options.jsx';
 import AddOption from './AddOption';
 import OptionModal from './OptionModal';
 
