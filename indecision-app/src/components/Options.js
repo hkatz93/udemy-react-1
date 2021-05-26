@@ -3,7 +3,7 @@ import Option from './Option';
 
 const Options = (props) => (
     <div>
-    <button className='big-button' onClick={props.handleDeleteOptions}>Remove All</button>
+    <button onClick={props.handleDeleteOptions}>Remove All</button>
     <p>item count = {props.options.length}</p>
     {props.options.length > 0 
         ? 
