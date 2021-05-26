@@ -57,7 +57,7 @@ export default class IndecisionApp extends React.Component {
         return (
         <div>
             <Header title={title} subtitle={subtitle} />
-        <div className='container'>    
+          <div className='container'>    
             <Action 
                 hasOption={this.state.options.length > 0}
                 handleWhatShouldIDo={this.handleWhatShouldIDo}
@@ -67,10 +67,10 @@ export default class IndecisionApp extends React.Component {
                 handleDeleteOptions={this.handleDeleteOptions}
             />
             <AddOption handleAddOption={this.handleAddOption} />
+          </div>
             <OptionModal 
                 selectedOption={this.state.selectedOption} 
                 handleDeleteOption={this.handleDeleteOption}/>
-            </div>
         </div>
         );
     }
