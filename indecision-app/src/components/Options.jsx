@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Option from './Option';
+// eslint-disable-next-line import/extensions
+import Option from './Option.jsx';
 
 const Options = ({ options, handleDeleteOptions }) => (
   <div>
@@ -12,7 +13,7 @@ const Options = ({ options, handleDeleteOptions }) => (
     {options.length > 0
       ? (
         <ol>
-          {options.map((value) => <Option key={value.id} value={value} />)}
+          {options.map((value) => <Option key={value} value={value} />)}
         </ol>
       )
       : 'No options'}
