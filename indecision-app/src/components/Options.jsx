@@ -1,20 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Option from './Option';
 
-const Options = (props) => (
+const Options = ({ options, handleDeleteOptions }) => (
   <div>
-    <button type="button" className="button" onClick={props.handleDeleteOptions}>Remove All</button>
+    <button type="button" className="button" onClick={handleDeleteOptions}>Remove All</button>
     <p>
       item count =
-      {props.options.length}
+      {options.length}
     </p>
-    {props.options.length > 0
+    {options.length > 0
       ? (
         <ol>
-          {props.options.map((value, index) => <Option key={index} value={value} />)}
+          {options.map((value) => <Option key={value.id} value={value} />)}
         </ol>
       )
       : 'No options'}
   </div>
 );
+
+Options.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleDeleteOptions: PropTypes.func.isRequired,
+};
+
 export default Options;
