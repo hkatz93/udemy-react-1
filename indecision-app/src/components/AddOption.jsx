@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 export default class AddOption extends React.Component {
@@ -12,7 +13,8 @@ export default class AddOption extends React.Component {
       if (option) {
         // console.log(option);
         // alert('handleAddOption: value == ');
-        this.props.handleAddOption(option);
+        const { handleAddOption } = this.props;
+        handleAddOption(option);
       }
     }
 
@@ -20,9 +22,14 @@ export default class AddOption extends React.Component {
       return (
         <div>
           <form onSubmit={this.handleAddOption}>
-            <input type='text' name='option' /><button className='button'>Add Option</button>
+            <input type="text" name="option" />
+            <button type="submit" className="button">Add Option</button>
           </form>
         </div>
       );
     }
 }
+
+AddOption.propTypes = {
+  handleAddOption: PropTypes.func.isRequired,
+};
