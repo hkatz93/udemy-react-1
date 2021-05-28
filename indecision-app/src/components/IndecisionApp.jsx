@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import Header from './Header.jsx';
-import Action from './Action.jsx';
-import Options from './Options.jsx';
-import AddOption from './AddOption.jsx';
-import OptionModal from './OptionModal.jsx';
+import Header from './Header';
+import Action from './Action';
+import Options from './Options';
+import AddOption from './AddOption';
+import OptionModal from './OptionModal';
 
 export default class IndecisionApp extends React.Component {
     // eslint-disable-next-line react/state-in-constructor

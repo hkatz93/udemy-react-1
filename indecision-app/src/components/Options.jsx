@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/extensions
-import Option from './Option.jsx';
+import Option from './Option';
 
 const Options = ({ options, handleDeleteOptions }) => (
   <div>
