@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './Header.jsx';
 import Action from './Action.jsx';
 import Options from './Options.jsx';
-import AddOption from './AddOption';
+import AddOption from './AddOption.jsx';
 import OptionModal from './OptionModal.jsx';
 
 export default class IndecisionApp extends React.Component {

@@ -6,22 +6,23 @@ export default class AddOption extends React.Component {
     //     this.handleAddOption = this.handleAddOption.bind(this);
     // }
     handleAddOption = (e) => {
-        //console.log(testing);
-        e.preventDefault();
-        const option = e.target.elements.option.value.trim();
-        if (option) {
-            // console.log(option);
-            // alert('handleAddOption: value == ');
-            this.props.handleAddOption(option);
-        }
+      // console.log(testing);
+      e.preventDefault();
+      const option = e.target.elements.option.value.trim();
+      if (option) {
+        // console.log(option);
+        // alert('handleAddOption: value == ');
+        this.props.handleAddOption(option);
+      }
     }
-    render() { 
-        return (
+
+    render() {
+      return (
         <div>
-        <form onSubmit={this.handleAddOption}>
-        <input type='text' name='option' /><button className='button'>Add Option</button>
-        </form>
+          <form onSubmit={this.handleAddOption}>
+            <input type='text' name='option' /><button className='button'>Add Option</button>
+          </form>
         </div>
-        );
+      );
     }
 }
