@@ -15,8 +15,12 @@ const OptionModal = ({ selectedOption, handleDeleteOption }) => (
 );
 
 OptionModal.propTypes = {
-  selectedOption: PropTypes.string.isRequired,
+  selectedOption: PropTypes.string,
   handleDeleteOption: PropTypes.func.isRequired,
+};
+
+OptionModal.defaultProps = {
+  selectedOption: undefined,
 };
 
 export default OptionModal;
