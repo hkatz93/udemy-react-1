@@ -3,9 +3,20 @@ import PropTypes from 'prop-types';
 
 const Option = ({ value, index }) => (
   <div>
-    {index + 1}
-    )&nbsp;
-    {value}
+    <div>
+      {index + 1}
+      )&nbsp;
+      {value}
+    </div>
+    <button
+      type="button"
+      className="button button--link"
+      // onClick={(e) => {
+      //  props.handleDeleteOption(props.optionText);
+      // }}
+    >
+      Remove
+    </button>
   </div>
 );
 
