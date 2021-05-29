@@ -18,6 +18,12 @@ export default class IndecisionApp extends React.Component {
       }));
     };
 
+    handleDeleteOption2 = (optionToRemove) => {
+      this.setState((prevState) => ({
+        options: prevState.options.filter((option) => option !== optionToRemove),
+      }));
+    }
+
     handleDeleteOption = () => {
       this.setState(() => ({ selectedOption: undefined }));
     }
