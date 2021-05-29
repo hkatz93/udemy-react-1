@@ -18,9 +18,9 @@ const Options = ({ options, handleDeleteOptions }) => (
     </p>
     {options.length > 0
       ? (
-        <ol>
-          {options.map((value) => <Option key={value} value={value} />)}
-        </ol>
+        <div>
+          {options.map((value, index) => <Option key={value} value={value} index={index} />)}
+        </div>
       )
       : 'No options'}
   </div>
