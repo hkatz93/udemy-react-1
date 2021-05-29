@@ -5,7 +5,13 @@ import Option from './Option';
 
 const Options = ({ options, handleDeleteOptions }) => (
   <div>
-    <button type="button" className="button" onClick={handleDeleteOptions}>Remove All</button>
+    <button
+      type="button"
+      className="button button--link"
+      onClick={handleDeleteOptions}
+    >
+      Remove All
+    </button>
     <p>
       item count =
       {options.length}
