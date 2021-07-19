@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Option = ({ value, index }) => (
+const Option = ({ value, index, handleDeleteOption }) => (
   <div>
     <div>
       {index + 1}
@@ -11,9 +11,9 @@ const Option = ({ value, index }) => (
     <button
       type="button"
       className="button button--link"
-      // onClick={(e) => {
-      //  props.handleDeleteOption(props.optionText);
-      // }}
+      onClick={(e) => {
+        handleDeleteOption(value);
+      }}
     >
       Remove
     </button>
@@ -23,5 +23,6 @@ const Option = ({ value, index }) => (
 Option.propTypes = {
   value: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  handleDeleteOption: PropTypes.func.isRequired,
 };
 export default Option;
