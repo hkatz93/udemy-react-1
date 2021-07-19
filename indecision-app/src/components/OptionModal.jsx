@@ -2,21 +2,21 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Modal from 'react-modal';
 
-const OptionModal = ({ selectedOption, handleDeleteOption }) => (
+const OptionModal = ({ selectedOption, handleDeleteOption2 }) => (
   <Modal
     isOpen={!!selectedOption}
-    onRequestClose={handleDeleteOption}
+    onRequestClose={handleDeleteOption2}
     contentLabel="Selected Option"
   >
     <h1>Selected Option</h1>
     <p>{selectedOption && selectedOption}</p>
-    <button type="button" onClick={handleDeleteOption}>Okay</button>
+    <button type="button" onClick={handleDeleteOption2}>Okay</button>
   </Modal>
 );
 
 OptionModal.propTypes = {
   selectedOption: PropTypes.string,
-  handleDeleteOption: PropTypes.func.isRequired,
+  handleDeleteOption2: PropTypes.func.isRequired,
 };
 
 OptionModal.defaultProps = {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/extensions
 import Option from './Option';
 
-const Options = ({ options, handleDeleteOptions, handleDeleteOption2 }) => (
+const Options = ({ options, handleDeleteOptions, handleDeleteOption }) => (
   <div>
     <button
       type="button"
@@ -24,7 +24,7 @@ const Options = ({ options, handleDeleteOptions, handleDeleteOption2 }) => (
               key={value}
               value={value}
               index={index}
-              handleDeleteOption2={handleDeleteOption2}
+              handleDeleteOption={handleDeleteOption}
             />
           ))}
         </div>
@@ -36,7 +36,7 @@ const Options = ({ options, handleDeleteOptions, handleDeleteOption2 }) => (
 Options.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleDeleteOptions: PropTypes.func.isRequired,
-  handleDeleteOption2: PropTypes.func.isRequired,
+  handleDeleteOption: PropTypes.func.isRequired,
 };
 
 export default Options;
