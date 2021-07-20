@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Option = ({ value, index, handleDeleteOption }) => (
-  <div className="widget-option">
+  <div className="option">
     <div>
       {index + 1}
       )&nbsp;
