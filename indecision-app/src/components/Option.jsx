@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 const Option = ({ value, index, handleDeleteOption }) => (
   <div className="option">
-    <div>
+    <p className="option__text">
       {index + 1}
-      )&nbsp;
+      .&nbsp;
       {value}
-    </div>
+    </p>
     <button
       type="button"
       className="button button--link"
@@ -15,7 +15,7 @@ const Option = ({ value, index, handleDeleteOption }) => (
         handleDeleteOption(value);
       }}
     >
-      Remove
+      remove
     </button>
   </div>
 );
