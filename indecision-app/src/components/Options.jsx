@@ -16,10 +16,6 @@ const Options = ({ options, handleDeleteOptions, handleDeleteOption }) => (
       </button>
     </div>
 
-    <p>
-      item count =
-      {options.length}
-    </p>
     {options.length > 0
       ? (
         <div>
@@ -33,7 +29,7 @@ const Options = ({ options, handleDeleteOptions, handleDeleteOption }) => (
           ))}
         </div>
       )
-      : 'No options'}
+      : <div className="widget-body-message">Please add an item to get started</div>}
   </div>
 );
 

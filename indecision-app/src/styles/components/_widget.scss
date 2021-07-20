@@ -3,6 +3,18 @@
     background-color: $light-blue;
     margin-bottom: $xl-size;
 }
+
+.widget-body-message {
+    color: $off-white-blue;
+    // mostly works, but not a perfect center
+    // width: 50%;
+    // margin: $m-size auto $m-size auto;
+
+    display: flex;
+    justify-content: space-around;
+    padding: $l-size;
+}
+
 .widget-header {
     background-color: $blue;
     color: $off-white-blue;
