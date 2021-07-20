@@ -29,7 +29,7 @@ const Options = ({ options, handleDeleteOptions, handleDeleteOption }) => (
           ))}
         </div>
       )
-      : <p className="widget-body-message">Please add an item to get started</p>}
+      : <p className="widget__message">Please add an item to get started</p>}
   </div>
 );
 

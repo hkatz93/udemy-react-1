@@ -4,20 +4,26 @@
     margin-bottom: $xl-size;
 }
 
-.widget-body-message {
-    color: $off-white-blue;
+.widget__message {
+    color: $off-white;
     // mostly works, but not a perfect center
     // width: 50%;
     // margin: $m-size auto $m-size auto;
 
-    display: flex;
-    justify-content: space-around;
+    // looks nice with narrow screen, trying another method below
+    // display: flex;
+    // justify-content: space-around;
+    // padding: $l-size;
+
+    text-align: center;
     padding: $l-size;
+    margin: 0;
+    border-bottom: 1px solid lighten($light-blue, 10%);
 }
 
 .widget-header {
     background-color: $blue;
-    color: $off-white-blue;
+    color: $off-white;
     display: flex;
     justify-content: space-between;
     padding: $m-size;
