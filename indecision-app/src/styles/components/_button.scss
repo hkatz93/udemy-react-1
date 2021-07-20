@@ -19,6 +19,7 @@
     border: none;
     border-bottom: 0.3rem solid darken($purple, 10%);
     color: white;
+    cursor: pointer;
     font-weight: 500;
     padding: $s-size;
 }
@@ -28,4 +29,7 @@
     border: none;
     color: $off-white-blue;
     padding: 0;
+    // width: 30%;
+    // float: right;
+    // border: 1rem solid white;
 }

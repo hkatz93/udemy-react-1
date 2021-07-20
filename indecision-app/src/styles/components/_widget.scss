@@ -1,0 +1,21 @@
+// widget header
+.widget {
+    background-color: $light-blue;
+    margin-bottom: $xl-size;
+}
+.widget-header {
+    background-color: $blue;
+    color: $off-white-blue;
+    display: flex;
+    justify-content: space-between;
+    padding: $m-size;
+}
+
+.widget-header__title {
+    margin: 0;
+}
+
+.widget-option {
+    display: flex;
+    justify-content: space-between;
+}
