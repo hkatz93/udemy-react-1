@@ -30,4 +30,9 @@
 .widget-option {
     display: flex;
     justify-content: space-between;
+    padding-bottom: $s-size/2;
+}
+
+.widget-options {
+    padding: $s-size;
 }

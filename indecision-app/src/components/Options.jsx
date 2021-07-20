@@ -18,7 +18,7 @@ const Options = ({ options, handleDeleteOptions, handleDeleteOption }) => (
 
     {options.length > 0
       ? (
-        <div>
+        <div className="widget-options">
           {options.map((value, index) => (
             <Option
               key={value}
