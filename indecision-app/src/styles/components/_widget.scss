@@ -5,20 +5,20 @@
 }
 
 .widget__message {
-    color: $off-white;
     // mostly works, but not a perfect center
     // width: 50%;
     // margin: $m-size auto $m-size auto;
-
+    
     // looks nice with narrow screen, trying another method below
     // display: flex;
     // justify-content: space-around;
     // padding: $l-size;
-
-    text-align: center;
-    padding: $l-size;
-    margin: 0;
+    
+    color: $off-white;
     border-bottom: 1px solid lighten($light-blue, 10%);
+    margin: 0;
+    padding: $l-size;
+    text-align: center;
 }
 
 .widget-header {
@@ -31,12 +31,6 @@
 
 .widget-header__title {
     margin: 0;
-}
-
-.widget-option {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: $s-size/2;
 }
 
 .widget-options {
