@@ -10,6 +10,7 @@ export default class IndecisionApp extends React.Component {
     // eslint-disable-next-line react/state-in-constructor
     state = {
       options: ['1a', 'Act 2b', 'Act 3c'],
+      error: 'Enter in a valid value',
     }
 
     handleDeleteOptions = () => {
@@ -54,6 +55,10 @@ export default class IndecisionApp extends React.Component {
         this.setState((prevState) => ({
           options: prevState.options.concat([option]),
         }));
+      } else {
+        this.setState(() => ({
+          error: 'Duplicate Entry, try again:',
+        }));
       }
       // console.log(option);
     };
@@ -61,7 +66,7 @@ export default class IndecisionApp extends React.Component {
     render() {
       const title = 'Indecision Picker';
       const subtitle = 'Put your life into the hands of a computer';
-      const { options, selectedOption } = this.state;
+      const { options, selectedOption, error } = this.state;
 
       return (
         <div>
@@ -77,7 +82,10 @@ export default class IndecisionApp extends React.Component {
                 handleDeleteOptions={this.handleDeleteOptions}
                 handleDeleteOption={this.handleDeleteOption}
               />
-              <AddOption handleAddOption={this.handleAddOption} />
+              <AddOption 
+                handleAddOption={this.handleAddOption}
+                error={error}
+              />
             </div>
             <OptionModal
               selectedOption={selectedOption}

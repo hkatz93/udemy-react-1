@@ -19,9 +19,10 @@ export default class AddOption extends React.Component {
     }
 
     render() {
+      const { error } = this.props;
       return (
         <div>
-          <p>Enter your thing to do:</p>
+          <p>{error}</p>
           <form onSubmit={this.handleAddOption}>
             <input type="text" name="option" />
             <button type="submit" className="button">Add Option</button>
@@ -33,4 +34,5 @@ export default class AddOption extends React.Component {
 
 AddOption.propTypes = {
   handleAddOption: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
 };
