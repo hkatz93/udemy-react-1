@@ -5,8 +5,8 @@ import Modal from 'react-modal';
 const OptionModal = ({ selectedOption, handleDeleteOption2 }) => (
   <Modal
     isOpen={!!selectedOption}
-    onRequestClose={handleDeleteOption2}
     contentLabel="Selected Option"
+    closeTimeoutMS={500}
   >
     <h1>Selected Option</h1>
     <p>{selectedOption && selectedOption}</p>

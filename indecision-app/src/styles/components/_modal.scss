@@ -1,0 +1,23 @@
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    transition: opacity 200ms ease-in-out;
+    // opacity: 1;
+}
+
+
+// .ReactModal__Content ReactModalPortal {
+//     background-color: $off-black;
+//     padding: 0;
+//     // color: red;
+// }
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-close {
+    opacity: 0;
+}
