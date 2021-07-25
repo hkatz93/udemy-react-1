@@ -6,11 +6,19 @@ const OptionModal = ({ selectedOption, handleDeleteOption2 }) => (
   <Modal
     isOpen={!!selectedOption}
     contentLabel="Selected Option"
-    closeTimeoutMS={500}
+    closeTimeoutMS={200}
+    className="modal"
   >
-    <h1>Selected Option</h1>
-    <p>{selectedOption && selectedOption}</p>
-    <button type="button" onClick={handleDeleteOption2}>Okay</button>
+    <h1 className="modal__title">Selected Option</h1>
+    <p className="modal__body">{selectedOption && selectedOption}</p>
+    <button
+      type="button"
+      onClick={handleDeleteOption2}
+      className="button"
+    >
+      Okay
+    </button>
+
   </Modal>
 );
 
