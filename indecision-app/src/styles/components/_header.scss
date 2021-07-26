@@ -2,7 +2,7 @@
     font-size: $m-size;
     color: white;
     background-color: $off-black;
-    margin-bottom: $xl-size;
+    margin-bottom: $m-size;
     padding: $m-size 0;
 }
 
@@ -17,4 +17,10 @@
     color: $off-white;
     font-weight: 500;
     margin: 0;
+}
+
+@media (min-width: $desktop-break-pt) {
+    .header {
+        margin-bottom: $xl-size;
+    }
 }
